@@ -1,0 +1,49 @@
+- name: ensure that my default packages is installed
+  apt:
+    pkg:
+    - joe
+    - cloc
+    - openjdk-11-jdk
+    - openjdk-11-source
+    - curl
+    - docker
+    - docker-compose
+    - git
+    - meld
+    - openvpn
+    - teams
+    - maven
+    
+- name: Install slack from url
+  apt:
+    deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.8.0-amd64.deb
+    
+- name: Does the Google apt file exist?
+  command: test -f {{apt_file}}
+  register: google_apt_exists
+  ignore_errors: True
+
+- name: Add Google Chrome key
+  shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+  when: google_apt_exists.rc == 1
+
+- name: Add Google Chrome repo
+  copy: content="deb http://dl.google.com/linux/chrome/deb/ stable main" dest={{apt_file}} owner=root group=root mode=644
+  when: google_apt_exists.rc == 1
+
+- name: Update apt cache
+  apt: update_cache=yes
+  when: google_apt_exists.rc == 1
+
+- name: Install Google Chrome
+  apt: pkg=google-chrome-stable
+    
+- name: update all packages to the latest version
+  apt:
+    upgrade: dist
+    update_cache: yes
+- name: Remove useless packages that are no longer required
+  apt:
+    autoremove: yes
+    autoclean: yes
+    
