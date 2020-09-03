@@ -1,9 +1,6 @@
 - hosts: localhost
   become: true
   
-  vars:
-    - chrome_apt_file: /etc/apt/sources.list.d/google-chrome.list
-  
   pre_tasks:
     - name: update all packages to the latest version
       apt:
@@ -15,7 +12,9 @@
   tasks:
     - include: tasks/users.yml
     - include: tasks/cron.yml
-    - include: tasks/packages.yml chrome_apt_file={{chrome_apt_file}}
+    - include: tasks/packages.yml 
+      vars: 
+        chrome_apt_file: "/etc/apt/sources.list.d/google-chrome.list"
     - include: tasks/gnome.yml
   
 #TODO  - name: openvpn setup to home 
