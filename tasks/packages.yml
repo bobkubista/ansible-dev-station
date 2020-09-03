@@ -13,7 +13,6 @@
     - openvpn
     - teams
     - maven
-#    - spotify
     
 - name: Install slack from url
   apt:
@@ -40,13 +39,36 @@
   when: google_apt_exists.rc == 1
 
 - name: Add Google Chrome repo
-  copy: content="deb http://dl.google.com/linux/chrome/deb/ stable main" dest={{chrome_apt_file}} owner=root group=root mode=644
+  copy: 
+    content: "deb http://dl.google.com/linux/chrome/deb/ stable main" 
+    dest: {{chrome_apt_file}} 
+    owner: root 
+    group: root 
+    mode: 644
   when: google_apt_exists.rc == 1
 
 - name: Update apt cache
-  apt: update_cache=yes
+  apt: 
+    update_cache: yes
   when: google_apt_exists.rc == 1
 
 - name: Install Google Chrome
-  apt: pkg=google-chrome-stable
+  apt: 
+    pkg: google-chrome-stable
+  
+- name: Add Apt Keys for Spotify
+  apt_key: 
+    keyserver: hkp://keyserver.ubuntu.com:80 
+    id: 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 
+    state: present
+
+- name: Add repository for Spotify
+  apt_repository: 
+    repo: 'deb http://repository.spotify.com stable non-free'
+
+- name: Install spotify
+  apt: 
+    name: spotify-client 
+    update_cache: yes 
+    state: latest  
    
