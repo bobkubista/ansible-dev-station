@@ -1,4 +1,4 @@
-- name: ensure that my default packages is installed
+- name: ensure that my default packages are installed
   apt:
     pkg:
     - joe
