@@ -14,3 +14,11 @@
         - git
         - meld
         - openvpn
+        - teams
+        - maven
+        
+    - name: Install slack from url
+      apt:
+        deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.8.0-amd64.deb
+        
+        
