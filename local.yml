@@ -9,6 +9,17 @@
     apt:
       update_cache: yes
       changed_when: false
+      
        
   tasks:
   - include: tasks/packages.yml
+  
+  
+#  - name: update all packages to the latest version
+#  apt:
+#    upgrade: dist
+#    update_cache: yes
+#- name: Remove useless packages that are no longer required
+#  apt:
+#    autoremove: yes
+#    autoclean: yes
