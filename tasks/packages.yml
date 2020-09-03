@@ -41,10 +41,10 @@
 - name: Add Google Chrome repo
   copy: 
     content: "deb http://dl.google.com/linux/chrome/deb/ stable main" 
-    dest: {{chrome_apt_file}} 
+    dest: "{{chrome_apt_file}}" 
     owner: root 
     group: root 
-    mode: 644
+    mode: "644"
   when: google_apt_exists.rc == 1
 
 - name: Update apt cache
