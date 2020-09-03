@@ -16,6 +16,7 @@
     - include: tasks/users.yml
     - include: tasks/cron.yml
     - include: tasks/packages.yml
+    - include: tasks/gnome.yml
   
 #TODO  - name: openvpn setup to home 
 #TODO  - name: ensure eclipse is installed 
