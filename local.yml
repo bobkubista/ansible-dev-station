@@ -6,19 +6,39 @@
       name: htop
       state: latest
 
-  - name: ensure that my default packages is installed
+  - name: ensure that the joe editor is installed
     apt:
-      pkg:
-      - joe
-      - cloc
-      - openjdk-11-jdk
-      - openjdk-11-source
-      - curl
-      - docker
-      - docker-compose
-      - git
-      - meld
-      - openvpn
-      - slack
-      - teams
-     # - spotify  
+      name: joe
+      state: latest
+  - name: ensure cloc is installed
+    apt:
+      name: cloc
+      state: latest
+  - name: ensure Java 11 is installed
+    apt:
+      name: openjdk-11-jdk
+      state: latest
+  - name: ensure Java 11 sources is installed
+    apt:
+      name: openjdk-11-source
+      state: latest
+  - name: ensure curl is installed
+    apt:
+      name: curl
+      state: latest
+  - name: ensure docker is installed
+    apt:
+      name: docker
+      state: latest       
+  - name: ensure docker compose is installed
+    apt:
+      name: docker-compose
+      state: latest       
+  - name: ensure git is installed
+    apt:
+      name: git
+      state: latest
+  - name: ensure maven is installed
+    apt:
+      name: maven
+      state: latest  
