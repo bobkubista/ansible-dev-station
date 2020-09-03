@@ -19,6 +19,16 @@
   apt:
     deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.8.0-amd64.deb
     
+- name: copy maven thuis-settings.xml
+  copy: 
+    src: .files/thuis-settings.xml 
+    dest: /home/bob/.m2/thuis-settings.xml
+- name: symlink maven settings
+  file:
+    src: "/home/bob/.m2/thuis-settings.xml"
+    dest: "/home/bob/.m2/settings.xml"
+    state: link    
+    
 #TODO - name: Does the Google apt file exist?
 #  command: test -f {{apt_file}}
 #  register: google_apt_exists
