@@ -1,18 +1,18 @@
 - hosts: localhost
   become: true
   
-  vars:
-    - apt_file: /etc/apt/sources.list.d/google-chrome.list
+#  vars:
+#    - apt_file: /etc/apt/sources.list.d/google-chrome.list
   
   pre_tasks:
-  - name: update all packages to the latest version
-    apt:
-      update_cache: yes
-      changed_when: false
+    - name: update all packages to the latest version
+      apt:
+        update_cache: yes
+        changed_when: false
       
        
   tasks:
-  - include: tasks/packages.yml
+    - include: tasks/packages.yml
   
   
 #  - name: update all packages to the latest version
