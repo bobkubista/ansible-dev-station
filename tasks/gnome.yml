@@ -9,8 +9,15 @@
     group: bob 
     mode: 600
 
-#TODO do I use gnome or unity?- name: Set GNOME Wallpaper
-#  become_user: bob
-#  dconf: 
-#    key: "/org/gnome/desktop/background/picture-uri" 
-#    value: "'file:///home/bob/.wallpaper.jpg'"
+- name: Set GNOME Wallpaper
+  become_user: bob
+  dconf: 
+    key: "/org/gnome/desktop/background/picture-uri" 
+    value: "'file:///home/bob/.wallpaper.jpg'"
+
+- name: adding favorite apps
+  become_user: bob
+  dconf:
+    key: "org/gnome/shell/favorite-apps"
+    value: "['org.gnome.Terminal.desktop', 'google-chrome.desktop', 'eclipse.desktop', 'slack.desktop', 'spotify.desktop', 'org.gnome.Nautilus.desktop', 'teams.desktop']"
+    
