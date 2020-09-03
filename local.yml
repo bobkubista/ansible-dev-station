@@ -45,3 +45,20 @@
     - name: Install Google Chrome
       apt: pkg=google-chrome-stable
         
+#    - name: copy maven thuis-settings.xml
+#      copy: 
+#        src: ./maven_settings/thuis-settings.xml 
+#        dest: {{home_dir}}/.m2/thuis-settings.xml
+#    - name: symlink maven settings
+#      file:
+#        src: "{{home_dir}}/.m2/thuis-settings.xml"
+#        dest: "{{home_dir}}/.m2/settings.xml"
+#        state: link
+    - name: update all packages to the latest version
+      apt:
+        upgrade: dist
+        update_cache: yes
+    - name: Remove useless packages that are no longer required
+      apt:
+        autoremove: yes
+        autoclean: yes
