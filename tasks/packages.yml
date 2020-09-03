@@ -21,7 +21,7 @@
     
 - name: copy maven thuis-settings.xml
   copy: 
-    src: .files/thuis-settings.xml 
+    src: files/thuis-settings.xml 
     dest: /home/bob/.m2/thuis-settings.xml
 - name: symlink maven settings
   file:
