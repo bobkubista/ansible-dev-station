@@ -15,7 +15,7 @@
     - include: tasks/packages.yml 
       vars: 
         chrome_apt_file: "/etc/apt/sources.list.d/google-chrome.list"
-        spotify_apt_file: "/etc/apt/sources.list.d/spotify-chrome.list"
+        spotify_apt_file: "/etc/apt/sources.list.d/spotify.list"
     - include: tasks/gnome.yml
   
 #TODO  - name: openvpn setup to home 
