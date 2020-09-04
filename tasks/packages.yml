@@ -26,7 +26,12 @@
   file:
     src: "/home/bob/.m2/thuis-settings.xml"
     dest: "/home/bob/.m2/settings.xml"
-    state: link    
+    state: link
+    
+- name: copy maven auto complete
+  copy:
+    src: files/maven_bash_completion.bash
+    dest: /etc/bash_completion.d/mvn        
     
 - name: Does the Google apt file exist?
   command: test -f {{chrome_apt_file}}
