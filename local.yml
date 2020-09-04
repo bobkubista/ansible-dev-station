@@ -16,15 +16,17 @@
       vars: 
         chrome_apt_file: "/etc/apt/sources.list.d/google-chrome.list"
         spotify_apt_file: "/etc/apt/sources.list.d/spotify.list"
+    - include: tasks/app_settings.yml
     - include: tasks/gnome.yml
   
 #TODO  - name: openvpn setup to home 
+# nmcli con import type openvpn file ~/Downloads/openvpn.ovpn
 #TODO  - name: ensure eclipse is installed 
 #TODO  - name: eclipse setup
 #TODO  - name: ensure vlc is installed 
 #TODO  - name: ssh keys 
 #TODO  - name: get github projects
-#TODO - name: Remove useless packages that are no longer required
+
   post_tasks:
   - name: remove all unused packages
     apt:

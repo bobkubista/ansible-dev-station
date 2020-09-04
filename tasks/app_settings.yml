@@ -1,0 +1,17 @@
+# my local maven settings files    
+- name: copy maven thuis-settings.xml
+  copy: 
+    src: files/thuis-settings.xml 
+    dest: /home/bob/.m2/thuis-settings.xml
+- name: symlink maven settings
+  file:
+    src: "/home/bob/.m2/thuis-settings.xml"
+    dest: "/home/bob/.m2/settings.xml"
+    state: link
+    
+# maven auto complete    
+- name: copy maven auto complete
+  copy:
+    src: files/maven_bash_completion.bash
+    dest: /etc/bash_completion.d/mvn        
+   

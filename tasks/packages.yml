@@ -13,26 +13,14 @@
     - openvpn
     - teams
     - maven
+    - network-manager-openvpn
+    - pptp-linux
     
 - name: Install slack from url
   apt:
     deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.8.0-amd64.deb
     
-- name: copy maven thuis-settings.xml
-  copy: 
-    src: files/thuis-settings.xml 
-    dest: /home/bob/.m2/thuis-settings.xml
-- name: symlink maven settings
-  file:
-    src: "/home/bob/.m2/thuis-settings.xml"
-    dest: "/home/bob/.m2/settings.xml"
-    state: link
-    
-- name: copy maven auto complete
-  copy:
-    src: files/maven_bash_completion.bash
-    dest: /etc/bash_completion.d/mvn        
-    
+#Chrome browser    
 - name: Does the Google apt file exist?
   command: test -f {{chrome_apt_file}}
   register: google_apt_exists
@@ -61,6 +49,7 @@
   apt: 
     pkg: google-chrome-stable
   
+  # Spotify
 - name: Does the Spotify apt file exist?
   command: test -f {{spotify_apt_file}}
   register: spotify_apt_exists
