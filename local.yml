@@ -22,10 +22,10 @@
 #TODO  - name: ensure eclipse is installed 
 #TODO  - name: eclipse setup
 #TODO  - name: ensure vlc is installed 
-#TODO  - name: ensure maven completion is installed  
 #TODO  - name: ssh keys 
 #TODO  - name: get github projects
 #TODO - name: Remove useless packages that are no longer required
-#  apt:
-#    autoremove: yes
-#    autoclean: yes
+  post_tasks:
+  - name: remove all unused packages
+    apt:
+      autoremove: yes
