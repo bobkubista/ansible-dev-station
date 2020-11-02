@@ -16,6 +16,7 @@
       vars: 
         chrome_apt_file: "/etc/apt/sources.list.d/google-chrome.list"
         spotify_apt_file: "/etc/apt/sources.list.d/spotify.list"
+        terraform_apt_file: "/etc/apt/sources.list.d/terraform.list"
     - include: tasks/app_settings.yml
     - include: tasks/gnome.yml
   

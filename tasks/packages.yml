@@ -77,3 +77,33 @@
 - name: Install Spofify
   apt: 
     pkg: spotify-client
+
+#terraform
+- name: Does the Terraform apt file exist?
+  command: test -f {{terraform_apt_file}}
+  register: terraform_apt_exists
+  ignore_errors: True
+  changed_when: false
+
+- name: Add Terraform key
+  shell: wget -q -O - https://apt.releases.hashicorp.com/gpg | apt-key add -
+  when: google_apt_exists.rc == 1
+
+- name: Add Terraform repo
+  copy: 
+    content: "deb [arch-amd64] https://apt.releases.hashicorp.com $(lsb_release - cs) main" 
+    dest: "{{terraform_apt_file}}" 
+    owner: root 
+    group: root 
+    mode: "644"
+  when: terraform_apt_exists.rc == 1
+
+- name: Update apt cache
+  apt: 
+    update_cache: yes
+  when: terraform_apt_exists.rc == 1
+
+- name: Install Terraform
+  apt: 
+    pkg: terraform
+  
