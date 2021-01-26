@@ -14,4 +14,13 @@
   copy:
     src: files/maven_bash_completion.bash
     dest: /etc/bash_completion.d/mvn        
-   
+
+# git auto complete
+- name: copy git auto complete
+  copy: 
+    src: files/.git-completion.bash
+    dest: /home/bob/.git-completion.bash
+- name: copy bash profile for git auto complete
+  copy: 
+    src: files/.bash_profile
+    dest: /home/bob/.bash_profile
