@@ -6,6 +6,7 @@
   copy: 
     src: files/wallpaper.jpg 
     dest: /home/bob/.wallpaper.jpg 
+    become_user: bob
     owner: bob 
     group: bob 
     mode: 640
