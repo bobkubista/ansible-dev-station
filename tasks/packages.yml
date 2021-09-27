@@ -92,8 +92,6 @@
 - name: Set ubuntu release 
   shell: lsb_release -cs
   register: ubuntu_release
-  ignore_errors: True
-  changed_when: false
   
 - name: Add Terraform repo
   copy: 
