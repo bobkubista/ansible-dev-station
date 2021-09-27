@@ -57,16 +57,11 @@
   changed_when: false
 
 - name: Add Spotify key
-  shell: wget -q -O - https://download.spotify.com/debian/pubkey_0D811D58.gpg | apt-key add -
+  apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 state=present
   when: spotify_apt_exists.rc == 1
 
 - name: Add Spotify repo
-  copy: 
-    content: "deb http://repository.spotify.com stable non-free" 
-    dest: "{{spofify_apt_file}}" 
-    owner: root 
-    group: root 
-    mode: "644"
+  apt_repository: repo='deb http://repository.spotify.com stable non-free'
   when: spotify_apt_exists.rc == 1
 
 - name: Update apt cache
@@ -75,8 +70,7 @@
   when: spotify_apt_exists.rc == 1
 
 - name: Install Spofify
-  apt: 
-    pkg: spotify-client
+    apt: name=spotify-client update_cache=yes state=latest
 
 #terraform
 - name: Does the Terraform apt file exist?
