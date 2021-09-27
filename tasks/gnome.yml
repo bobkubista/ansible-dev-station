@@ -12,10 +12,9 @@
 
 - name: Set GNOME Wallpaper
   become_user: bob
-  community.general.dconf: 
+  dconf: 
     key: "/org/gnome/desktop/background/picture-uri" 
     value: "'file:///home/bob/.wallpaper.jpg'"
-    state: present
     
 #TODO
 #TODO- name: adding favorite apps
