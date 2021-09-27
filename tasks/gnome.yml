@@ -10,11 +10,11 @@
     group: bob 
     mode: 600
 
-#TODO- name: Set GNOME Wallpaper
-#TODO  become_user: bob
-#TODO  dconf: 
-#TODO    key: "/org/gnome/desktop/background/picture-uri" 
-#TODO    value: "'file:///home/bob/.wallpaper.jpg'"
+- name: Set GNOME Wallpaper
+  become_user: bob
+  dconf: 
+    key: "/org/gnome/desktop/background/picture-uri" 
+    value: "'file:///home/bob/.wallpaper.jpg'"
 #TODO
 #TODO- name: adding favorite apps
 #TODO  become_user: bob
