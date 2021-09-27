@@ -19,6 +19,7 @@
     - python-is-python3
     - dconf-cli
     - psutils
+    - python-psutil
     
 - name: Install slack from url
   apt:
