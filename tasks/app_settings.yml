@@ -1,4 +1,9 @@
 # my local maven settings files    
+- name: create m2 direcotry
+  file:
+    path: /home/bob/.m2
+    state: directory
+    
 - name: copy maven thuis-settings.xml
   copy: 
     src: files/thuis-settings.xml 
