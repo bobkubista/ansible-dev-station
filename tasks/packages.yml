@@ -63,7 +63,7 @@
 - name: Add Spotify repo
   copy: 
     content: "deb http://repository.spotify.com stable non-free" 
-    dest: "{{spofify_apt_file}}" 
+    dest: "{{spotify_apt_file}}" 
     owner: root 
     group: root 
     mode: "644"
