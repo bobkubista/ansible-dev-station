@@ -9,7 +9,7 @@
     become_user: bob
     owner: bob 
     group: bob 
-    mode: 640
+    mode: 660
 
 - name: Set GNOME Wallpaper
   become_user: bob
