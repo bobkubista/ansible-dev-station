@@ -15,6 +15,7 @@
     - maven
     - network-manager-openvpn
     - pptp-linux
+    - lsb_release
     
 - name: Install slack from url
   apt:
