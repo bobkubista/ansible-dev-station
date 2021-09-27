@@ -8,7 +8,7 @@
     dest: /home/bob/.wallpaper.jpg 
     owner: bob 
     group: bob 
-    mode: 600
+    mode: 640
 
 - name: Set GNOME Wallpaper
   become_user: bob
