@@ -95,11 +95,11 @@
   
 - name: show ubuntu release set
   ansible.builtin.debug:
-    var: ubuntu_release
+    var: ubuntu_release.stdout
     
 - name: Add Terraform repo
   copy: 
-    content: "deb [arch-amd64] https://apt.releases.hashicorp.com {{ ubuntu_release }} main" 
+    content: "deb [arch-amd64] https://apt.releases.hashicorp.com {{ ubuntu_release.stdout }} main" 
     dest: "{{terraform_apt_file}}" 
     owner: root 
     group: root 
