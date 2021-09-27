@@ -12,7 +12,7 @@
 
 - name: Set GNOME Wallpaper
   become_user: bob
-  dconf: 
+  community.general.dconf: 
     key: "/org/gnome/desktop/background/picture-uri" 
     value: "'file:///home/bob/.wallpaper.jpg'"
 #TODO
