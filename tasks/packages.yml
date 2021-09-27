@@ -99,7 +99,7 @@
     
 - name: Add Terraform repo
   copy: 
-    content: "deb [arch-amd64] https://apt.releases.hashicorp.com {{ ubuntu_release.stdout }} main" 
+    content: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ubuntu_release.stdout }} main" 
     dest: "{{terraform_apt_file}}" 
     owner: root 
     group: root 
