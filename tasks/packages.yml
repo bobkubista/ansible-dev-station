@@ -89,9 +89,15 @@
   shell: wget -q -O - https://apt.releases.hashicorp.com/gpg | apt-key add -
   when: google_apt_exists.rc == 1
 
+- name: Set ubuntu release 
+  command: lsb_release - cs
+  register: ubuntu_release
+  ignore_errors: True
+  changed_when: false
+  
 - name: Add Terraform repo
   copy: 
-    content: "deb [arch-amd64] https://apt.releases.hashicorp.com $(lsb_release - cs) main" 
+    content: "deb [arch-amd64] https://apt.releases.hashicorp.com {{ ubuntu_release }} main" 
     dest: "{{terraform_apt_file}}" 
     owner: root 
     group: root 
