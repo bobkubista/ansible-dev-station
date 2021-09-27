@@ -15,6 +15,7 @@
     - maven
     - network-manager-openvpn
     - pptp-linux
+    - python3
     
 - name: Install slack from url
   apt:
