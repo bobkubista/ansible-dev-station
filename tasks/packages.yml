@@ -21,7 +21,11 @@
 - name: Install slack from url
   apt:
     deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.8.0-amd64.deb
-    
+
+- name: Install teams from url
+  apt:
+    deb: https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.4.00.13653_amd64.deb
+        
 #Chrome browser    
 - name: Does the Google apt file exist?
   shell: test -f {{chrome_apt_file}}
