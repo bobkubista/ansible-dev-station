@@ -57,7 +57,7 @@
   changed_when: false
 
 - name: Add Spotify key
-  shell: wget -q -O - https://download.spotify.com/debian/pubkey.gpg | apt-key add -
+  shell: wget -q -O - https://download.spotify.com/debian/pubkey_0D811D58.gpg | apt-key add -
   when: spotify_apt_exists.rc == 1
 
 - name: Add Spotify repo
