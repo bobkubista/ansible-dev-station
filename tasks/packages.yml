@@ -17,6 +17,7 @@
     - pptp-linux
     - python3
     - python-is-python3
+    - dconf-cli
     
 - name: Install slack from url
   apt:
