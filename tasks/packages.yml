@@ -18,6 +18,9 @@
     - python3
     - python-is-python3
     - dconf-cli
+    - dbus-send
+    - dconf
+    - dbus-run-session
     
 - name: Install slack from url
   apt:
