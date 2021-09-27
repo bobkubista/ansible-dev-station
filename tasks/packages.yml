@@ -90,7 +90,7 @@
   when: google_apt_exists.rc == 1
 
 - name: Set ubuntu release 
-  command: lsb_release - cs
+  command: lsb_release -cs
   register: ubuntu_release
   ignore_errors: True
   changed_when: false
