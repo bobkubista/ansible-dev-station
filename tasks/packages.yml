@@ -11,7 +11,7 @@
     - git
     - meld
     - openvpn
-    - teams
+    #- teams
     - maven
     - network-manager-openvpn
     - pptp-linux
