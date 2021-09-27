@@ -93,6 +93,10 @@
   shell: lsb_release -cs
   register: ubuntu_release
   
+- name: show ubuntu release set
+  ansible.builtin.debug:
+    var: ubuntu_release
+    
 - name: Add Terraform repo
   copy: 
     content: "deb [arch-amd64] https://apt.releases.hashicorp.com {{ ubuntu_release }} main" 
