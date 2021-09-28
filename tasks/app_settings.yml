@@ -3,13 +3,26 @@
   file:
     path: /home/bob/.m2
     state: directory
+    become_user: bob
+    owner: bob 
+    group: bob 
+    mode: 777
     
 - name: copy maven thuis-settings.xml
   copy: 
+    become_user: bob
+    owner: bob 
+    group: bob 
+    mode: 777
     src: files/thuis-settings.xml 
     dest: /home/bob/.m2/thuis-settings.xml
+    
 - name: symlink maven settings
   file:
+    become_user: bob
+    owner: bob 
+    group: bob 
+    mode: 777
     src: "/home/bob/.m2/thuis-settings.xml"
     dest: "/home/bob/.m2/settings.xml"
     state: link
@@ -17,6 +30,10 @@
 # maven auto complete    
 - name: copy maven auto complete
   copy:
+    become_user: bob
+    owner: bob 
+    group: bob 
+    mode: 777
     src: files/maven_bash_completion.bash
     dest: /etc/bash_completion.d/mvn        
 
@@ -25,7 +42,15 @@
   copy: 
     src: files/.git-completion.bash
     dest: /home/bob/.git-completion.bash
+    become_user: bob
+    owner: bob 
+    group: bob 
+    mode: 777
 - name: copy bash profile for git auto complete
   copy: 
     src: files/.bash_profile
     dest: /home/bob/.bash_profile
+    become_user: bob
+    owner: bob 
+    group: bob 
+    mode: 777
